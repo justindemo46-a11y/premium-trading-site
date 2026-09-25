@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexQuant | Advanced Algorithmic Trading Systems</title>
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --card-bg: #131b2e;
+            --accent: #00f2fe;
+            --accent-glow: rgba(0, 242, 254, 0.2);
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 1px solid var(--border); background: rgba(11, 15, 25, 0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: 1px; }
+        .logo span { color: var(--accent); }
+        .nav-btn { background: var(--accent); color: var(--bg); padding: 8px 16px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .nav-btn:hover { box-shadow: 0 0 15px var(--accent-glow); }
+
+        .hero { text-align: center; padding: 80px 20px 60px; max-width: 800px; margin: 0 auto; }
+        .badge { background: rgba(0, 242, 254, 0.1); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(0, 242, 254, 0.2); }
+        h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; }
+        h1 span { background: linear-gradient(90deg, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p.hero-desc { font-size: clamp(16px, 2vw, 18px); color: var(--text-muted); margin-bottom: 35px; }
+
+        .cta-container { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #000; padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 16px; box-shadow: 0 4px 20px rgba(0,242,254,0.3); }
+        .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 16px; }
+
+        .features { padding: 60px 5%; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .feature-card { background: var(--card-bg); border: 1px solid var(--border); padding: 30px; border-radius: 12px; transition: 0.3s; }
+        .feature-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .feature-card h3 { margin-bottom: 12px; font-size: 20px; }
+        .feature-card p { color: var(--text-muted); font-size: 14px; }
+
+        .pricing-section { padding: 60px 20px; text-align: center; }
+        .pricing-card { background: var(--card-bg); border: 2px solid var(--accent); max-width: 450px; margin: 0 auto; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+        .price { font-size: 48px; font-weight: 800; color: var(--accent); margin: 20px 0; }
+        .pricing-features { text-align: left; list-style: none; margin: 25px 0; }
+        .pricing-features li { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text-muted); }
+        .pricing-features li::before { content: "✔ "; color: var(--accent); font-weight: bold; }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">APEX<span>QUANT</span></div>
+        <a href="#pricing" class="nav-btn">Get Access</a>
+    </header>
+
+    <section class="hero">
+        <div class="badge">Institutional Grade Architecture</div>
+        <h1>Automated Trading <span>Engineered for Alpha</span></h1>
+        <p class="hero-desc">Deploy battle-tested quantitative algorithms directly to your portfolio. Maximize consistency, eliminate emotional bias, and run 24/7.</p>
+        <div class="cta-container">
+            <a href="#pricing" class="btn-primary">Unlock System Now</a>
+            <a href="#features" class="btn-secondary">Explore Metrics</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature-card">
+            <h3>⚡ Ultra-Low Latency</h3>
+            <p>Executed at microsecond speeds via direct exchange APIs to minimize slippage during high-volatility events.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🛡️ Risk Management</h3>
+            <p>Built-in dynamic stop-loss, automated capital allocation limits, and algorithmic drawdown protection models.</p>
+        </div>
+        <div class="feature-card">
+            <h3>📊 Backtested Edge</h3>
+            <p>Verified across 8 years of historical market cycles across diverse asset classes and market conditions.</p>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+        <div class="pricing-card">
+            <h2>ApexCore License</h2>
+            <p style="color: var(--text-muted); font-size: 14px;">Full lifetime access to algorithmic templates and updates.</p>
+            <div class="price">$149</div>
+            <ul class="pricing-features">
+                <li>Complete source code & configuration files</li>
+                <li>Plug-and-play setup documentation</li>
+                <li>Direct integration with major brokers</li>
+                <li>Free lifetime framework upgrades</li>
+            </ul>
+            <!-- Change '#' to your actual payment platform link (Gumroad, Stripe, or Whop) -->
+            <a href="#" class="btn-primary" style="display: block; text-align: center;">Secure Your License</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ApexQuant Systems. All rights reserved. Trading carries substantial risk of loss.</p>
+    </footer>
+
+</body>
+</html>
