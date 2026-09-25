@@ -3,222 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApexQuant Global Technologies | Institutional Algorithmic Infrastructure</title>
+    <title>ApexQuant Global | Institutional Quantitative Technologies</title>
     <style>
         :root {
-            --bg: #05070b;
-            --card-bg: #0d1322;
-            --card-hover: #131d35;
-            --accent: #00f2fe;
-            --accent-glow: rgba(0, 242, 254, 0.2);
-            --text: #f1f5f9;
+            --bg-primary: #030712;
+            --bg-secondary: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --card-hover: rgba(30, 41, 59, 0.8);
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+            --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border: #1e293b;
+            --border: rgba(51, 65, 85, 0.5);
             --success: #10b981;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
         
-        /* Global Data Center Ticker */
-        .global-ticker { background: #020407; border-bottom: 1px solid var(--border); padding: 8px 5%; font-size: 11px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 1px; flex-wrap: wrap; gap: 10px; }
-        .ticker-group { display: flex; gap: 20px; align-items: center; }
-        .status-dot { width: 7px; height: 7px; background: var(--success); border-radius: 50%; box-shadow: 0 0 8px var(--success); display: inline-block; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
-        /* Enterprise Header */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 1px solid var(--border); background: rgba(5, 7, 11, 0.95); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 22px; font-weight: 900; color: var(--text); letter-spacing: 1.5px; }
-        .logo span { color: var(--accent); }
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.2s; }
+        /* Professional Global Bar */
+        .global-bar { background: #010409; border-bottom: 1px solid var(--border); padding: 8px 6%; font-size: 11px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.5px; }
+        .bar-items { display: flex; gap: 24px; align-items: center; }
+        .live-dot { width: 6px; height: 6px; background: var(--success); border-radius: 50%; box-shadow: 0 0 8px var(--success); display: inline-block; }
+
+        /* Navigation Header */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 22px 6%; border-bottom: 1px solid var(--border); background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 20px; font-weight: 800; color: var(--text-main); letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+        .logo span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s ease; }
         .nav-links a:hover { color: var(--accent); }
-        .nav-btn { background: var(--accent); color: var(--bg); padding: 9px 18px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 14px; transition: 0.3s; }
-        .nav-btn:hover { box-shadow: 0 0 20px var(--accent-glow); }
+        .nav-cta { background: var(--accent-gradient); color: #fff; padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 14px; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25); transition: transform 0.2s ease, opacity 0.2s ease; }
+        .nav-cta:hover { transform: translateY(-1px); opacity: 0.95; }
 
-        /* Enterprise Hero */
-        .hero { text-align: center; padding: 110px 20px 80px; max-width: 1000px; margin: 0 auto; }
-        .badge { background: rgba(0, 242, 254, 0.08); color: var(--accent); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: inline-block; margin-bottom: 25px; border: 1px solid rgba(0, 242, 254, 0.2); }
-        h1 { font-size: clamp(38px, 6vw, 64px); font-weight: 900; margin-bottom: 25px; letter-spacing: -1.5px; line-height: 1.1; }
-        h1 span { background: linear-gradient(90deg, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        p.hero-desc { font-size: clamp(16px, 2.2vw, 20px); color: var(--text-muted); margin-bottom: 45px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        /* Hero Section */
+        .hero { text-align: center; padding: 100px 20px 70px; max-width: 950px; margin: 0 auto; }
+        .badge { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: inline-block; margin-bottom: 24px; border: 1px solid rgba(56, 189, 248, 0.2); }
+        h1 { font-size: clamp(36px, 5.5vw, 62px); font-weight: 800; margin-bottom: 24px; letter-spacing: -1.5px; line-height: 1.1; }
+        h1 span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p.hero-desc { font-size: clamp(16px, 2vw, 19px); color: var(--text-muted); margin-bottom: 45px; max-width: 750px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
-        /* Corporate Enterprise Metrics Grid */
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto 90px; padding: 0 20px; }
-        .metric-card { background: var(--card-bg); border: 1px solid var(--border); padding: 25px; border-radius: 12px; text-align: center; }
-        .metric-card h3 { font-size: 32px; font-weight: 900; color: var(--accent); margin-bottom: 8px; }
-        .metric-card p { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; }
+        /* Metrics Showcase */
+        .metrics-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto 80px; padding: 0 20px; }
+        .metric-box { background: var(--card-bg); border: 1px solid var(--border); padding: 24px; border-radius: 12px; text-align: center; backdrop-filter: blur(10px); }
+        .metric-box h3 { font-size: 30px; font-weight: 800; color: var(--accent); margin-bottom: 6px; }
+        .metric-box p { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; }
 
-        /* Infrastructure Divisions Grid */
-        .divisions-section { padding: 40px 5% 90px; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
-        .section-title p { color: var(--text-muted); font-size: 16px; }
+        /* Architecture Divisions */
+        .divisions-section { padding: 40px 6% 90px; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
+        .section-header p { color: var(--text-muted); font-size: 16px; }
 
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .division-card { background: var(--card-bg); border: 1px solid var(--border); padding: 40px 30px; border-radius: 16px; transition: 0.3s; position: relative; overflow: hidden; }
-        .division-card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-5px); }
-        .division-card h3 { margin-bottom: 15px; font-size: 22px; font-weight: 700; }
-        .division-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
-        .division-specs { list-style: none; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 15px; }
-        .division-specs li { padding: 5px 0; display: flex; align-items: center; gap: 8px; }
-        .division-specs li::before { content: "▪"; color: var(--accent); }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+        .card-item { background: var(--card-bg); border: 1px solid var(--border); padding: 38px 30px; border-radius: 14px; transition: all 0.3s ease; backdrop-filter: blur(10px); }
+        .card-item:hover { border-color: rgba(56, 189, 248, 0.4); background: var(--card-hover); transform: translateY(-4px); }
+        .card-item h3 { margin-bottom: 14px; font-size: 20px; font-weight: 700; color: var(--text-main); }
+        .card-item p { color: var(--text-muted); font-size: 14px; margin-bottom: 22px; line-height: 1.6; }
+        .card-list { list-style: none; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 16px; }
+        .card-list li { padding: 5px 0; display: flex; align-items: center; gap: 8px; }
+        .card-list li::before { content: "—"; color: var(--accent); font-weight: bold; }
 
-        /* Institutional Licensing / Multi-Tier Automation Portal */
-        .portal-section { padding: 60px 20px 100px; background: linear-gradient(180deg, var(--bg) 0%, #0a101f 100%); }
-        .portal-container { max-width: 650px; margin: 0 auto; background: var(--card-bg); border: 2px solid var(--accent); padding: 50px 40px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.7); }
-        .portal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
-        .portal-header h2 { font-size: 26px; font-weight: 800; }
-        .portal-price { font-size: 46px; font-weight: 900; color: var(--accent); }
+        /* Secure Client Portal / Onboarding Form */
+        .portal-section { padding: 60px 20px 100px; background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%); }
+        .portal-box { max-width: 600px; margin: 0 auto; background: var(--card-bg); border: 1px solid rgba(56, 189, 248, 0.3); padding: 45px 35px; border-radius: 20px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6); backdrop-filter: blur(20px); }
+        .portal-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        .portal-top h2 { font-size: 24px; font-weight: 700; }
+        .portal-cost { font-size: 42px; font-weight: 800; color: var(--accent); }
 
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .form-group select, .form-group input { width: 100%; padding: 14px 18px; background: #040609; border: 1px solid var(--border); color: var(--text); border-radius: 8px; font-size: 15px; outline: none; transition: 0.2s; }
-        .form-group select:focus, .form-group input:focus { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+        .field-group { margin-bottom: 22px; }
+        .field-group label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .field-group select, .field-group input { width: 100%; padding: 14px 16px; background: #020408; border: 1px solid var(--border); color: var(--text-main); border-radius: 8px; font-size: 14px; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+        .field-group select:focus, .field-group input:focus { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
 
-        .btn-dispatch { background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #000; width: 100%; padding: 16px; border-radius: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 16px; border: none; cursor: pointer; text-align: center; display: block; box-shadow: 0 5px 25px rgba(0,242,254,0.35); transition: 0.3s; }
-        .btn-dispatch:hover { opacity: 0.95; transform: scale(1.01); }
+        .btn-submit { background: var(--accent-gradient); color: #fff; width: 100%; padding: 16px; border-radius: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 15px; border: none; cursor: pointer; text-align: center; display: block; box-shadow: 0 5px 20px rgba(56, 189, 248, 0.3); transition: opacity 0.2s ease, transform 0.2s ease; }
+        .btn-submit:hover { opacity: 0.95; transform: scale(1.01); }
 
-        /* Enterprise Footer */
-        footer { text-align: center; padding: 50px 20px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; background: #030407; }
-        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; font-size: 13px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; }
-        .footer-links a:hover { color: var(--accent); }
+        /* Professional Footer */
+        footer { text-align: center; padding: 45px 20px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; background: #010409; }
+        .footer-nav { display: flex; justify-content: center; gap: 28px; margin-bottom: 20px; font-size: 13px; }
+        .footer-nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s ease; }
+        .footer-nav a:hover { color: var(--accent); }
     </style>
 </head>
 <body>
 
-    <div class="global-ticker">
-        <div class="ticker-group">
-            <div><span class="status-dot"></span> <strong>NY4 (New York):</strong> Online</div>
-            <div><span class="status-dot"></span> <strong>LD4 (London):</strong> Online</div>
-            <div><span class="status-dot"></span> <strong>TY3 (Tokyo):</strong> Online</div>
+    <div class="global-bar">
+        <div class="bar-items">
+            <div><span class="live-dot"></span> <strong>NY4 NODE:</strong> Active</div>
+            <div><span class="live-dot"></span> <strong>LD4 NODE:</strong> Active</div>
+            <div><span class="live-dot"></span> <strong>TY3 NODE:</strong> Active</div>
         </div>
-        <div><strong>Global Throughput:</strong> 42,000 req/sec</div>
+        <div><strong>Latency Profile:</strong> 0.8ms Average</div>
     </div>
 
     <header>
         <div class="logo">APEXQUANT <span>GLOBAL</span></div>
-        <div class="nav-links">
-            <a href="#divisions">Divisions</a>
-            <a href="#infrastructure">Technology</a>
-            <a href="#portal" class="nav-btn">Client Portal</a>
-        </div>
+        <nav class="nav-links">
+            <a href="#divisions">Architecture</a>
+            <a href="#technology">Infrastructure</a>
+            <a href="#portal" class="nav-cta">Client Portal</a>
+        </nav>
     </header>
 
     <section class="hero">
-        <div class="badge">Global Quantitative Corporation</div>
-        <h1>Institutional Multi-Asset <span>Execution Infrastructure</span></h1>
-        <p class="hero-desc">ApexQuant Global deploys elite high-frequency trading architecture, automated risk engines, and enterprise liquidity routing models for institutional and private portfolios worldwide.</p>
+        <div class="badge">Institutional Quantitative Division</div>
+        <h1>Autonomous Execution & <span>Algorithmic Infrastructure</span></h1>
+        <p class="hero-desc">Deploy high-performance quantitative algorithms engineered for absolute risk containment, ultra-low latency execution, and multi-asset alpha generation.</p>
     </section>
 
-    <div class="metrics-grid">
-        <div class="metric-card">
+    <div class="metrics-container">
+        <div class="metric-box">
             <h3>$1.2B+</h3>
-            <p>Annual Processed Volume</p>
+            <p>Managed Flow</p>
         </div>
-        <div class="metric-card">
+        <div class="metric-box">
             <h3>0.8ms</h3>
-            <p>Cross-Exchange Latency</p>
+            <p>Routing Speed</p>
         </div>
-        <div class="metric-card">
+        <div class="metric-box">
             <h3>99.99%</h3>
-            <p>Infrastructure Uptime</p>
+            <p>Uptime SLA</p>
         </div>
-        <div class="metric-card">
-            <h3>14+</h3>
-            <p>Global Liquidity Nodes</p>
+        <div class="metric-box">
+            <h3>14 Nodes</h3>
+            <p>Global Colocation</p>
         </div>
     </div>
 
     <section class="divisions-section" id="divisions">
-        <div class="section-title">
-            <h2>Core Technological Divisions</h2>
-            <p>Engineered for maximum scale, fault tolerance, and absolute algorithmic discipline.</p>
+        <div class="section-header">
+            <h2>Core Technological Infrastructure</h2>
+            <p>Built with enterprise rigor to eliminate emotion and maximize mathematical consistency.</p>
         </div>
-        <div class="grid-3">
-            <div class="division-card">
+        <div class="grid-cards">
+            <div class="card-item">
                 <h3>⚡ HFT Alpha Capture</h3>
-                <p>Proprietary microsecond execution libraries built to isolate market inefficiencies and volatility arbitrage windows across major exchanges.</p>
-                <ul class="division-specs">
-                    <li>Direct FIX Protocol Integration</li>
-                    <li>Multi-threaded C++ Core Logic</li>
-                    <li>Automated Order Book Scrubbing</li>
+                <p>Proprietary microsecond execution modules designed to capture pricing inefficiencies across global liquidity pools.</p>
+                <ul class="card-list">
+                    <li>Direct FIX API Protocol</li>
+                    <li>Low-Footprint C++ Engine</li>
+                    <li>Slippage Mitigation Matrix</li>
                 </ul>
             </div>
-            <div class="division-card">
-                <h3>🛡️ Enterprise Risk Matrix</h3>
-                <p>Real-time automated portfolio containment framework designed to eliminate tail-risk events and manage multi-asset exposure thresholds.</p>
-                <ul class="division-specs">
-                    <li>Dynamic Drawdown Dampeners</li>
+            <div class="card-item">
+                <h3>🛡️ Automated Risk System</h3>
+                <p>Multi-layered dynamic capital allocation safeguards built to protect institutional exposure thresholds 24/7.</p>
+                <ul class="card-list">
+                    <li>Adaptive Stop-Loss Logic</li>
                     <li>Real-time Correlation Tracking</li>
-                    <li>Automated Margin Lockouts</li>
+                    <li>Automated Volatility Lockouts</li>
                 </ul>
             </div>
-            <div class="division-card">
-                <h3>📊 Quantitative Research</h3>
-                <p>Decade-deep historical tick data modeling coupled with neural network pattern recognition across diverse macro environments.</p>
-                <ul class="division-specs">
-                    <li>8+ Years Backtest Matrix</li>
+            <div class="card-item">
+                <h3>📊 Rigorous Backtesting</h3>
+                <p>Tested rigorously across 8+ years of high-frequency tick data histories across diverse macro environments.</p>
+                <ul class="card-list">
+                    <li>Out-of-Sample Verification</li>
                     <li>Walk-Forward Optimization</li>
-                    <li>Non-Curve Fitted Parameters</li>
+                    <li>Zero Overfitting Parameters</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section class="portal-section" id="portal">
-        <div class="portal-container">
-            <div class="portal-header">
+        <div class="portal-box">
+            <div class="portal-top">
                 <div>
-                    <h2>Client Licensing Portal</h2>
-                    <p style="color: var(--text-muted); font-size: 13px; margin-top: 5px;">Secure institutional software provisioning.</p>
+                    <h2>Client Provisioning Portal</h2>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">Direct encrypted software license activation.</p>
                 </div>
-                <div class="portal-price">$149</div>
+                <div class="portal-cost">$149</div>
             </div>
             
-            <form id="enterpriseForm" onsubmit="dispatchEnterpriseHandshake(event)">
-                <div class="form-group">
-                    <label>Select Corporate Package</label>
-                    <select id="packageTier">
+            <form id="proForm" onsubmit="handleProSubmission(event)">
+                <div class="field-group">
+                    <label>Select Deployment Package</label>
+                    <select id="packageType">
                         <option value="ApexCore Standard License ($149)">ApexCore Standard License ($149)</option>
-                        <option value="ApexQuant Enterprise Suite & Source Code ($299)">ApexQuant Enterprise Suite & Source Code ($299)</option>
-                        <option value="Institutional White-Label Custom Deployment ($999)">Institutional White-Label Custom Deployment ($999)</option>
+                        <option value="ApexQuant Enterprise Suite ($299)">ApexQuant Enterprise Suite ($299)</option>
+                        <option value="Institutional Source Code & API ($999)">Institutional Source Code & API ($999)</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Authorized Principal / Telegram ID</label>
-                    <input type="text" id="principalHandle" placeholder="e.g. @Jutinpogi or Full Name" required>
+                <div class="field-group">
+                    <label>Principal Telegram ID or Corporate Handle</label>
+                    <input type="text" id="userHandle" placeholder="e.g. @Jutinpogi" required>
                 </div>
-                <div class="form-group">
-                    <label>Preferred Broker / Execution Node</label>
-                    <input type="text" id="brokerNode" placeholder="e.g. MetaTrader, Binance API, cTrader" required>
+                <div class="field-group">
+                    <label>Target Execution Node / Broker</label>
+                    <input type="text" id="brokerTarget" placeholder="e.g. MetaTrader, Binance API, cTrader" required>
                 </div>
-                <button type="submit" class="btn-dispatch">Initialize Secure Handshake</button>
+                <button type="submit" class="btn-submit">Initialize Secure Handshake</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <div class="footer-links">
-            <a href="#divisions">Divisions</a>
+        <div class="footer-nav">
+            <a href="#divisions">Architecture</a>
             <a href="#portal">Client Portal</a>
             <a href="#">Compliance & Terms</a>
-            <a href="#">Security Infrastructure</a>
+            <a href="#">Security Protocol</a>
         </div>
-        <p>&copy; 2026 ApexQuant Global Technologies Corp. All rights reserved. Algorithmic deployment carries inherent financial risk.</p>
+        <p>&copy; 2026 ApexQuant Global Technologies Corp. All rights reserved. Automated trading involves substantial risk.</p>
     </footer>
 
     <script>
-        function dispatchEnterpriseHandshake(event) {
+        function handleProSubmission(event) {
             event.preventDefault();
-            const tier = document.getElementById('packageTier').value;
-            const handle = document.getElementById('principalHandle').value;
-            const broker = document.getElementById('brokerNode').value;
+            const pkg = document.getElementById('packageType').value;
+            const handle = document.getElementById('userHandle').value;
+            const broker = document.getElementById('brokerTarget').value;
             
-            const message = `[APEXQUANT ENTERPRISE INQUIRY]\n\nPackage: ${tier}\nPrincipal Handle: ${handle}\nExecution Node: ${broker}\n\nPlease initiate secure software provisioning and transfer protocol.`;
-            const encodedMessage = encodeURIComponent(message);
+            const message = `[APEXQUANT INSTITUTIONAL INQUIRY]\n\nPackage: ${pkg}\nClient Handle: ${handle}\nExecution Node: ${broker}\n\nPlease provide secure activation credentials.`;
+            const encoded = encodeURIComponent(message);
             
-            // Routes automatically to your professional Telegram desk
-            window.location.href = `https://t.me/Jutinpogi?text=${encodedMessage}`;
+            // Routes directly to your professional Telegram handle
+            window.location.href = `https://t.me/Jutinpogi?text=${encoded}`;
         }
     </script>
 
